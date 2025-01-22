@@ -19,7 +19,7 @@ resource "aws_launch_template" "swiggy-web-template" {
   key_name      = "devopsbyraham"
   network_interfaces {
     associate_public_ip_address = true
-    security_groups             = [aws_security_group.swiggy-ec2-asg-sg.id]
+    security_groups             = [aws_security_group.Swiggy-proj-1.id]
   }
   user_data = base64encode(file("apache.sh"))
   lifecycle {
