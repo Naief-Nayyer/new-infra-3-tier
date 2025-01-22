@@ -3,7 +3,7 @@ resource "aws_autoscaling_group" "swiggy-app-asg" {
   name = "swiggy-app-asg"
 
   launch_template {
-    id      = aws_launch_template.swiggy-app-template.id
+    id      = aws_launch_template.3tier-swiggy.id
     version = "$Latest"
   }
 
@@ -19,13 +19,13 @@ resource "aws_autoscaling_group" "swiggy-app-asg" {
 
 # Create a launch template for the EC2 instances
 resource "aws_launch_template" "swiggy-app-template" {
-  name_prefix   = "swiggy-app-template"
-  image_id      = "ami-0ed194d7eff6d2f81"
+  name_prefix   = "3tier-swiggy"
+  image_id      = "ami-0df8c184d5f6ae949"
   instance_type = "t2.micro"
   key_name      = "devopsbyraham"
 
   network_interfaces {
-    security_groups             = [aws_security_group.swiggy-ec2-asg-sg-app.id]
+    security_groups             = [aws_security_group.3tier-swiggyyy.id]
     associate_public_ip_address = false
   }
 
